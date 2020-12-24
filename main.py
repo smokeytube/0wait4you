@@ -53,15 +53,15 @@ def follow(thefile):
 #     timeoutpos = 69420 # 😎👉👉
 #     reconnect = 'y'
 
-jointime = input("What time do you want to join? (24 hour time, HOUR:MINUTE ex. 22:37): ")
+jointime = ("04:00")
 distag = ("<@773984010049028096>")
 timeoutprompt = ('n')
-warningpos = 3000
+warningpos = 50
 timeoutprompt = 'y'
-soundwarning = 'y'
+soundwarning = 'n'
 if timeoutprompt == 'y' or timeoutprompt == 'yes':
     timeoutpos = 5
-    reconnect = 'n'
+    reconnect = 'y'
 else:
     timeoutpos = 69420 # 😎👉👉
     reconnect = 'y'
