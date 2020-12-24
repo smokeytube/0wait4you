@@ -1,0 +1,7 @@
+jointime:
+discordid:
+timeoutprompt: y
+warningpos: 30
+
+timeoutpos: 5
+recconect = y
