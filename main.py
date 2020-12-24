@@ -1,10 +1,11 @@
-import time, os
+import os
+import time
 from datetime import datetime
 import time
 import pyautogui
 import win32api, win32con
 from discord_webhook import DiscordWebhook
-import cv2
+import random
 
 
 def click():
@@ -43,6 +44,7 @@ def follow(thefile):
 # jointime = input("What time do you want to join? (24 hour time, HOUR:MINUTE ex. 22:37): ")
 # distag = input("What is your discord tag? (ex. @UserName#0000): ")
 # timeoutprompt = input("Timeout? (If you are AFK and do not want to enter 2b2t AFK) (y/n):")
+# soundwarning = input("Play an alarm when at a high queue position? (y/n): ")
 # warningpos = int(input("What position to warn you?: "))
 # if timeoutprompt == 'y' or timeoutprompt == 'yes':
 #     timeoutpos = int(input("What queue position to disconnect at?: "))
@@ -54,8 +56,9 @@ def follow(thefile):
 jointime = input("What time do you want to join? (24 hour time, HOUR:MINUTE ex. 22:37): ")
 distag = ("<@773984010049028096>")
 timeoutprompt = ('n')
-warningpos = 30
+warningpos = 3000
 timeoutprompt = 'y'
+soundwarning = 'y'
 if timeoutprompt == 'y' or timeoutprompt == 'yes':
     timeoutpos = 5
     reconnect = 'n'
@@ -63,6 +66,7 @@ else:
     timeoutpos = 69420 # 😎👉👉
     reconnect = 'y'
 
+repit = 1
 while True:
     now = datetime.now()
     current_time = now.strftime("%H:%M")
@@ -118,6 +122,10 @@ while True:
                             webhook.execute()
                         except:
                             print ("Could not reach discord")
+                        if soundwarning == 'yes' or soundwarning == 'y' and repit == 1:
+                            randb = str(random.randint(1,5))
+                            os.startfile('assets\\audio\\alarm'+ randb + '.mp3')
+                            repit = repit + 1
                         now = datetime.now()
                         current_timeintlast = now.strftime("%H%M")
                         current_timeintlast1 = int(current_timeintlast)
