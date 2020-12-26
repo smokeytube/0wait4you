@@ -7,6 +7,38 @@ import win32api, win32con
 from discord_webhook import DiscordWebhook
 import random
 
+title = """
+   ___                  _ _     _  _                       
+  / _ \                (_) |   | || |                      
+ | | | | __      ____ _ _| |_  | || |_   _   _  ___  _   _ 
+ | | | | \ \ /\ / / _` | | __| |__   _| | | | |/ _ \| | | |
+ | |_| |  \ V  V / (_| | | |_     | |   | |_| | (_) | |_| |
+  \___/    \_/\_/ \__,_|_|\__|    |_|    \__, |\___/ \__,_|
+                                          __/ |            
+                                         |___/             
+                    By smokeytube
+"""
+print(title)
+
+
+with open('preferences.txt') as infile:
+    words = 0
+    characters = 0
+    lineno = 0
+    for lineno, line in enumerate(infile, 1):
+        wordslist = line.split()
+        words += len(wordslist)
+        characters += sum(len(word) for word in wordslist)
+
+if characters < 110:
+    print ("preferences.txt is likely empty or partially empty. Please fill it out.")
+    override = input ("Manual override (if it is filled out) (y/n): ")
+    if override == 'n' or override == 'no':
+        print ("Please close the program and fill out preferences.txt")
+        time.sleep(69420) #😎👉👉
+    else:
+        pass
+
 
 def click():
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN,0,0)
@@ -55,7 +87,7 @@ timeoutpos = 5
 reconnect = 'y'
 timesleep = 30
 
-with open('information.txt', 'r') as infer:
+with open('preferences.txt', 'r') as infer:
     for inferreed in infer:
         if "jointime: " in inferreed:
             inferreedplit = inferreed.split('jointime: ')
@@ -89,14 +121,17 @@ warningpos = int(warningpos)
 timeoutpos = int(timeoutpos)
 timesleep = int(timesleep)
 
+print ("Starting...")
 repit = 1
 while True:
     now = datetime.now()
     current_time = now.strftime("%H:%M")
+    print ("Checking time...")
     if current_time == jointime:
         while True:
             logfile = open(os.getenv("APPDATA")+"/.minecraft/logs/latest.log", "r")
             loglines = follow(logfile)
+            print ("Started at " + current_time)
             try:
                 webhook = DiscordWebhook(url=diswebhook, content=("Started at " + current_time))
                 webhook.execute()

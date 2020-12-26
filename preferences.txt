@@ -1,0 +1,9 @@
+jointime:
+distag:
+diswebhook:
+timeoutprompt:
+warningpos:
+soundwarning:
+timeoutpos:
+reconnect:
+timesleep:

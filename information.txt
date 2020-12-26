@@ -1,9 +1,0 @@
-jointime: 22:32
-distag: <@here>
-diswebhook: https://discord.com/api/webhooks/791062578259820554/iQf1YuL4QAPogIPiL6cVnjOafCUOQuT190WnMLaVqSGMLOoR63cjGarVTO0M0brctep9
-timeoutprompt: y
-warningpos: 700
-soundwarning: n
-timeoutpos: 5
-reconnect: y
-timesleep: 30
