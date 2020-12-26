@@ -121,6 +121,7 @@ warningpos = int(warningpos)
 timeoutpos = int(timeoutpos)
 timesleep = int(timesleep)
 
+print ("Will join 2b2t at " + jointime)
 print ("Starting...")
 repit = 1
 while True:
